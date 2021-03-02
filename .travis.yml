@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - '12'
 dist: xenial
+os: linux
 cache:
   - yarn: true
 
@@ -27,8 +28,12 @@ jobs:
       name: "test develop"
     - stage: Test
       script:
-        - echo "test should be triggered by API"
-      name: "test"
+        - echo "test that always run"
+      name: "test that always run"
+    - stage: Test triggered by API only
+      script:
+        - echo "test should only be triggered by API"
+      name: "test API"
 
 stages:
   - name: Test on master
