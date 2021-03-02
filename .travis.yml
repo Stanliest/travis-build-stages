@@ -14,6 +14,8 @@ branches:
     - master
     - develop
 
+script: echo $APP
+
 jobs:
   allow_failures:
     - stage: Test
@@ -34,7 +36,7 @@ jobs:
       script:
         - echo "test should only be triggered by API"
       name: "test API"
-      env: NAME=Test API!!!
+      env: APP=order
 
 stages:
   - name: Test on master
