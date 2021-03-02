@@ -1,9 +1,9 @@
 language: node_js
 node_js:
   - '12'
-
+dist: xenial
 cache:
-  - yarn
+  - yarn: true
 
 install:
   - yarn install
@@ -32,7 +32,7 @@ jobs:
 
 stages:
   - name: Test on master
-  - if: branch = master
+    if: branch = master
   - name: Test on develop
-  - if: branch = develop
+    if: branch = develop
   - Test
