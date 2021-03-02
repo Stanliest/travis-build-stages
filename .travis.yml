@@ -21,11 +21,11 @@ jobs:
     - stage: Test on master       
       script: 
         - ./test.sh master
-      name: "test master" 
+      env: test master 
     - stage: Test on develop
       script:
         - ./test.sh develop
-      name: "test develop"
+      env: test develop
     - stage: Test
       script:
         - echo "test that always run"
@@ -33,8 +33,7 @@ jobs:
     - stage: Test triggered by API only
       script:
         - echo "test should only be triggered by API"
-      env: testAPI
-
+      env: Test API
 
 
 stages:
