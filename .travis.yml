@@ -35,8 +35,7 @@ jobs:
     - stage: Test triggered by API only
       script:
         - echo "test should only be triggered by API"
-      name: "test API"
-      env: APP=order
+      env: APP=testAPI
 
 stages:
   - name: Test on master
