@@ -1,0 +1,38 @@
+language: node_js
+node_js:
+  - '12'
+
+cache:
+  - yarn
+
+install:
+  - yarn install
+
+branches:
+  only:
+    - master
+    - develop
+
+jobs:
+  allow_failures:
+    - stage: Test
+  include:
+    - stage: Test on master       
+      script: 
+        - ./test.sh master
+      name: "test master" 
+    - stage: Test on develop
+      script:
+        - ./test.sh develop
+      name: "test develop"
+    - stage: Test
+      script:
+        - echo "test should be triggered by API"
+      name: "test"
+
+stages:
+  - name: Test on master
+  - if: branch = master
+  - name: Test on develop
+  - if: branch = develop
+  - Test
