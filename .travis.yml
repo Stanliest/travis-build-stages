@@ -21,6 +21,7 @@ jobs:
     - stage: Test on master       
       script: 
         - ./test.sh master
+        - ./triggerBuild.sh
       env: Test master 
     - stage: Test on develop
       script:
