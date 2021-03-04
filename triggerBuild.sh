@@ -32,7 +32,7 @@ body='{
 
 curl -s -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: token $TOKEN" \
+  -H "Authorization: token $TRAVIS_API_TOKEN" \
   -H 'Content-Type: application/json' \
   -H 'Travis-API-Version: 3' \
   -d "$body" \
