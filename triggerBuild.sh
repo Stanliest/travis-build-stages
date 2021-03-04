@@ -3,6 +3,7 @@
 body='{
   "request": {
     "branch":"develop",
+    "message": "This build is triggered by Travis API",
     "merge_mode": "replace",
     "config": {
       "jobs": {
