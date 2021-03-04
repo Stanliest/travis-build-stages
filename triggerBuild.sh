@@ -13,11 +13,14 @@ body='{
             "script": [
               "echo \"test should only be triggered by API\""
             ],
-            "env": [
-              {
-                "TestAPI": ""
-              }
-            ]
+            "env": "TestAPI"
+          },
+          {
+            "stage": "Test triggered by API only 2",
+            "script": [
+              "echo \"test should only be triggered by API\""
+            ],
+            "env": "TestAPI2"
           }
         ]
       },
