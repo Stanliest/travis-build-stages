@@ -21,23 +21,23 @@ jobs:
     - stage: Test on master       
       script: 
         - ./test.sh master
-        - ./triggerBuild.sh
-      env: Test master 
+      env: TestMaster 
     - stage: Test on develop
       script:
         - ./test.sh develop
-      env: Test develop
+        - ./triggerBuild.sh
+      env: TestDevelop
     - stage: Test
       script:
         - echo "test that always run"
-      env: Test that always run
+      env: TestThatAlwaysRun
     - script:
         - echo "test that always run 2"
       env: Test that always run 2
-    - stage: Test triggered by API only
+    - stage: TestTriggeredByAPIonly
       script:
         - echo "test should only be triggered by API"
-      env: Test API
+      env: TestAPI
 
 
 stages:
