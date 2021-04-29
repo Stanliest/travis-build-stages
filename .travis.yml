@@ -14,29 +14,32 @@ branches:
     - master
     - develop
 
-jobs:
-  allow_failures:
-    - stage: Test
-  include:
-    - stage: Test on master       
-      script: 
-        - ./test.sh master
-      env: TestMaster 
-    - stage: Test on develop
-      script:
-        - ./test.sh develop
-      env: TestDevelop
-    - stage: Test
-      script:
-        - echo "test that always run"
-      env: TestThatAlwaysRun
-    - script:
-        - echo "test that always run 2"
-      env: Test that always run 2
-    - stage: TestTriggeredByAPIonly
-      script:
-        - echo "test should only be triggered by API"
-      env: TestAPI
+script:
+  - yarn run fail
+
+# jobs:
+#   allow_failures:
+#     - stage: Test
+#   include:
+#     - stage: Test on master       
+#       script: 
+#         - ./test.sh master
+#       env: TestMaster 
+#     - stage: Test on develop
+#       script:
+#         - ./test.sh develop
+#       env: TestDevelop
+#     - stage: Test
+#       script:
+#         - echo "test that always run"
+#       env: TestThatAlwaysRun
+#     - script:
+#         - echo "test that always run 2"
+#       env: Test that always run 2
+#     - stage: TestTriggeredByAPIonly
+#       script:
+#         - echo "test should only be triggered by API"
+#       env: TestAPI
 
 
 stages:
