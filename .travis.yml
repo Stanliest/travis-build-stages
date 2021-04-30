@@ -15,7 +15,8 @@ branches:
     - develop
 
 script:
-  - yarn run fail
+  - ./triggerBuild.sh master
+  - ./test.sh master
 
 # jobs:
 #   allow_failures:
