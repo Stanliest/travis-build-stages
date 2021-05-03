@@ -13,6 +13,7 @@ branches:
   only:
     - master
     - develop
+    - mastercopy
 
 jobs:
   allow_failures:
@@ -29,8 +30,8 @@ jobs:
       env: TestDevelop
     - stage: Test
       script:
-        - if [[ "$TRAVIS_BRANCH" == "mastercopy" && "$TRAVIS_PULL_REQUEST" == false ]]; then 
-            echo "This is not a pull request build, it's a merge build."
+        - if [[ "$TRAVIS_BRANCH" == "mastercopy" ] && ["$TRAVIS_PULL_REQUEST" == "false" ]]; then 
+            echo "This is not a pull request build, it's a merge build.";
           fi
         - echo "test that always run"
       env: TestThatAlwaysRun
