@@ -29,11 +29,11 @@ jobs:
       env: TestDevelop
     - stage: Test
       script:
+        - if [[ "$TRAVIS_BRANCH" == "mastercopy" && "$TRAVIS_PULL_REQUEST" == false ]]; then 
+            echo "This is not a pull request build, it's a merge build."
+          fi
         - echo "test that always run"
       env: TestThatAlwaysRun
-    - script:
-        - echo "test that always run 2"
-      env: TestThatAlwaysRun2
     - stage: Test triggered by API only
       script:
         - echo "test should only be triggered by API"
