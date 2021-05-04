@@ -40,7 +40,7 @@ jobs:
         - echo "test should only be triggered by API"
       env: TestAPI
 
-
+ 
 stages:
   - name: Test on master
     if: branch = master
