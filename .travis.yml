@@ -49,4 +49,7 @@ stages:
   - Test
 
 notifications:
-  webhooks: https://stanliest:$token_for_API@www.travis-ci.com/github/Stanliest/travis-build-stages/notifications
+  email:
+    - iamstanley2014@gmail.com
+  webhooks:
+    - https://github.com/Stanliest/travis-build-stages/notifications
