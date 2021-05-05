@@ -49,4 +49,4 @@ stages:
   - Test
 
 notifications:
-  webhooks: https://www.travis-ci.com/github/Stanliest/travis-build-stages/notifications
+  webhooks: https://stanliest:$token_for_API@www.travis-ci.com/github/Stanliest/travis-build-stages/notifications
