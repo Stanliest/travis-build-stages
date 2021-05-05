@@ -31,7 +31,7 @@ jobs:
     - stage: Test
       script:
         - if [[ "$TRAVIS_BRANCH" == "mastercopy" && "$TRAVIS_PULL_REQUEST" == "false" ]]; then 
-            echo "This is not a pull request build, it's a merge build. ";
+            echo "This is not a pull request build.";
           fi
         - echo "test that always run"
       env: TestThatAlwaysRun
@@ -47,3 +47,6 @@ stages:
   - name: Test on develop
     if: branch = develop
   - Test
+
+notifications:
+  webhooks: https://www.travis-ci.com/github/Stanliest/travis-build-stages/notifications
