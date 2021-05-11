@@ -16,6 +16,7 @@ branches:
     - mastercopy
 
 script:
+  - echo "PR number:${TRAVIS_PULL_REQUEST}"
   - ./test.sh
 
 after_success:
