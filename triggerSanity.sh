@@ -2,7 +2,7 @@
 
 body='{
   "request": {
-    "branch":"develop",
+    "branch":"mastercopy",
     "message": "Trigger sanity test",
     "merge_mode": "replace",
     "config": {
