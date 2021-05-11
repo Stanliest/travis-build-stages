@@ -12,15 +12,12 @@ install:
 branches:
   only:
     - master
-    - develop
-    - mastercopy
 
 script:
+  - echo "${TRAVIS_REPO_SLUG#*/}"
+  - echo "$TRAVIS_BRANCH"
+  - echo "$TRAVIS_PULL_REQUEST"
   - ./test.sh
 
 after_success:
-  - echo "$TRAVIS_BRANCH"
-  - echo "$TRAVIS_PULL_REQUEST"
-  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" ]; then 
-      ./triggerSanity.sh;
-    fi
+  - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" ]]; then echo "Triggering sanity test!!"; ./triggerSanity.sh; fi
