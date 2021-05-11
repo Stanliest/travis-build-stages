@@ -12,7 +12,7 @@ body='{
       "after_success": [
         "curl -s -X POST \
           -H 'Accept: application/json' \
-          -H 'Authorization: token $token_for_API' \
+          -H 'Authorization: token $token_token_token' \
           -H 'Content-Type: application/json' \
           -H 'Travis-API-Version: 3' \
           https://api.travis-ci.com/repo/Stanliest%2Ftravis-build-stages/pulls/'${TRAVIS_PULL_REQUEST}'/merge"
@@ -23,7 +23,7 @@ body='{
 
 curl -s -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: token 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" \
+  -H "Authorization: token $token_token_token" \
   -H 'Content-Type: application/json' \
   -H 'Travis-API-Version: 3' \
   -d "$body" \
