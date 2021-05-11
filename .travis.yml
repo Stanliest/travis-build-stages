@@ -16,14 +16,12 @@ branches:
     - mastercopy
 
 script:
-  - echo "Repo name:${TRAVIS_REPO_SLUG#*/}"
-  - echo "Repo name:${REPO_NAME}"
-  - chmod +x *.sh
+  - echo "${TRAVIS_REPO_SLUG#*/}"
+  - echo "$TRAVIS_BRANCH"
+  - echo "$TRAVIS_PULL_REQUEST"
   - ./test.sh
 
 after_success:
-  - echo "$TRAVIS_BRANCH"
-  - echo "$TRAVIS_PULL_REQUEST"
   - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" != "false" ]]; then 
       ./triggerSanity.sh;
     fi
