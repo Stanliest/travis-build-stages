@@ -9,12 +9,6 @@ cache:
 install:
   - yarn install
 
-branches:
-  only:
-    - master
-    - develop
-    - mastercopy
-
 script:
   - echo "${TRAVIS_REPO_SLUG#*/}"
   - echo "$TRAVIS_BRANCH"
@@ -22,6 +16,7 @@ script:
   - ./test.sh
 
 after_success:
-  - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" != "false" ]]; then 
+  - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" ]]; then 
+      echo "Triggering sanity test!!"
       ./triggerSanity.sh;
     fi

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "${TRAVIS_PULL_REQUEST}"
+
 body='{
   "request": {
     "branch":"mastercopy",
