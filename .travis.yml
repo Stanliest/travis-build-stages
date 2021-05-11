@@ -20,6 +20,8 @@ script:
   - ./test.sh
 
 after_success:
-  - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" ]]; then 
+  - echo "$TRAVIS_BRANCH"
+  - echo "$TRAVIS_PULL_REQUEST"
+  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" ]; then 
       ./triggerSanity.sh;
     fi
