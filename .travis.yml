@@ -9,6 +9,10 @@ cache:
 install:
   - yarn install
 
+branches:
+  only:
+    - master
+
 script:
   - echo "${TRAVIS_REPO_SLUG#*/}"
   - echo "$TRAVIS_BRANCH"
