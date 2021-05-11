@@ -2,6 +2,7 @@
 
 echo "PR number: ${TRAVIS_PULL_REQUEST}"
 echo "Repo name: ${TRAVIS_REPO_SLUG#*/}"
+echo "Repo name: ${REPO_NAME}"
 
 curl -s -X POST \
   -H 'Accept: application/json' \
