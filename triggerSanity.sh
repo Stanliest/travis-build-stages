@@ -9,7 +9,7 @@ body='{
     "merge_mode": "replace",
     "config": {
       "script": [
-        "./test.sh"
+        "./testFail.sh"
       ],
       "after_success": [
         "curl -X PUT -H \"Accept: application/vnd.github.v3+json\" -H \"Authorization: token '${token_token_token}'\" https://api.github.com/repos/Stanliest/travis-build-stages/pulls/'${TRAVIS_PULL_REQUEST}'/merge"
