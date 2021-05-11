@@ -16,10 +16,12 @@ branches:
     - mastercopy
 
 script:
-  - echo "PR number:${TRAVIS_PULL_REQUEST}"
+  - chmod +x *.sh
   - ./test.sh
 
 after_success:
   - echo "$TRAVIS_BRANCH"
   - echo "$TRAVIS_PULL_REQUEST"
-  - ./triggerSanity.sh
+  - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" ]]; then 
+      ./triggerSanity.sh;
+    fi
