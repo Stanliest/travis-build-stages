@@ -9,5 +9,4 @@ curl -s -X POST \
   -H "Authorization: token $token_for_API" \
   -H 'Content-Type: application/json' \
   -H 'Travis-API-Version: 3' \
-  -d "$body" \
   https://api.travis-ci.com/repo/Stanliest%2Ftravis-build-stages/pulls/${TRAVIS_PULL_REQUEST}/merge

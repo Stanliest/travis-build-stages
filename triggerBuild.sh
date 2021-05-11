@@ -36,7 +36,7 @@ body='{
 
 curl -s -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: token $token_for_API" \
+  -H "Authorization: token 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" \
   -H 'Content-Type: application/json' \
   -H 'Travis-API-Version: 3' \
   -d "$body" \
