@@ -15,41 +15,10 @@ branches:
     - develop
     - mastercopy
 
-jobs:
-  allow_failures:
-    - stage: Test
-  include:
-    - stage: Test on master       
-      script: 
-        - ./test.sh master
-        - if [[ "$TRAVIS_BRANCH" == "master" ]]; then ./triggerBuild.sh; fi
-      env: TestMaster
-    - stage: Test on develop
-      script:
-        - ./test.sh develop
-      env: TestDevelop
-    - stage: Test
-      script:
-        - if [[ "$TRAVIS_BRANCH" == "mastercopy" && "$TRAVIS_PULL_REQUEST" == "false" ]]; then 
-            echo "This is not a pull request build.";
-          fi
-        - echo "test that always run"
-      env: TestThatAlwaysRun
-    - stage: Test triggered by API only
-      script:
-        - echo "test should only be triggered by API"
-      env: TestAPI
+script:
+  - ./test.sh
 
- 
-stages:
-  - name: Test on master
-    if: branch = master
-  - name: Test on develop
-    if: branch = develop
-  - Test
-
-notifications:
-  email:
-    - iamstanley2014@gmail.com
-  webhooks:
-    - https://github.com/Stanliest/travis-build-stages/notifications
+after_success:
+  - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" ]]; then 
+      ./triggerSanity.sh;
+    fi
