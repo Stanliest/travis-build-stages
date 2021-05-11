@@ -1,9 +1,8 @@
 #!/bin/sh
-BRANCH=$1
 
 body='{
   "request": {
-    "branch":"'${BRANCH}'",
+    "branch":"develop",
     "message": "This build is triggered by Travis API",
     "merge_mode": "replace",
     "config": {
@@ -37,7 +36,7 @@ body='{
 
 curl -s -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: token $TRAVIS_API_TOKEN" \
+  -H "Authorization: token $token_for_API" \
   -H 'Content-Type: application/json' \
   -H 'Travis-API-Version: 3' \
   -d "$body" \
