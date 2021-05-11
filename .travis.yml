@@ -22,6 +22,6 @@ script:
 after_success:
   - echo "$TRAVIS_BRANCH"
   - echo "$TRAVIS_PULL_REQUEST"
-  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" ]; then 
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then 
       ./triggerSanity.sh;
     fi 
