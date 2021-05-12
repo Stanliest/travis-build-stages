@@ -2,9 +2,9 @@
 
 echo "${TRAVIS_PULL_REQUEST}"
 
-d="{
+d="\"{
   'state': 'closed'
-}"
+}\""
 
 body='{
   "request": {
