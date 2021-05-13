@@ -13,6 +13,17 @@ branches:
   only:
     - master
 
+jobs:
+  "include": [
+    {
+      "stage": "Stage1",
+      "script": [
+        echo "hello stage."
+      ],
+      "env": "Stage 1"
+    }
+  ]
+
 script:
   - echo "${TRAVIS_REPO_SLUG#*/}"
   - echo "$TRAVIS_BRANCH"
