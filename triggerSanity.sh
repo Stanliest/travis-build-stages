@@ -2,9 +2,6 @@
 
 echo "${TRAVIS_PULL_REQUEST}"
 
-d="\"{
-  'state': 'closed'
-}\""
 
 body='{
   "request": {
@@ -13,13 +10,10 @@ body='{
     "merge_mode": "replace",
     "config": {
       "script": [
-        "./testFail.sh"
+        "./test.sh"
       ],
       "after_success": [
         "curl -X PUT -H \"Accept: application/vnd.github.v3+json\" -H \"Authorization: token '${token_token_token}'\" httpss://api.github.com/repos/Stanliest/travis-build-stages/pulls/'${TRAVIS_PULL_REQUEST}'/merge"
-      ],
-      "after_failure": [
-        "curl -X PATCH -H \"Accept: application/vnd.github.v3+json\" -H \"Authorization: token '${token_token_token}'\" -d '${d}' https://api.github.com/repos/Stanliest/travis-build-stages/issues/'${TRAVIS_PULL_REQUEST}'"
       ]
     }
   }
