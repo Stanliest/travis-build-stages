@@ -9,6 +9,7 @@ body='{
     "message": "Trigger sanity test",
     "merge_mode": "replace",
     "config": {
+      "jobs": {},
       "script": [
         "./test.sh"
       ],
