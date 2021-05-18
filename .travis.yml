@@ -9,10 +9,6 @@ cache:
 install:
   - yarn install
 
-branches:
-  only:
-    - master
-
 jobs:
   "include": [
     {

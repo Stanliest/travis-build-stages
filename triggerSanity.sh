@@ -9,11 +9,12 @@ body='{
     "message": "Trigger sanity test",
     "merge_mode": "replace",
     "config": {
+      "jobs": {},
       "script": [
         "./test.sh"
       ],
       "after_success": [
-        "curl -X PUT -H \"Accept: application/vnd.github.v3+json\" -H \"Authorization: token '${token_token_token}'\" httpss://api.github.com/repos/Stanliest/travis-build-stages/pulls/'${TRAVIS_PULL_REQUEST}'/merge"
+        "curl -X PUT -H \"Accept: application/vnd.github.v3+json\" -H \"Authorization: token ${token_token_token}\" https://api.github.com/repos/Stanliest/travis-build-stages/pulls/'${TRAVIS_PULL_REQUEST}'/merge"
       ]
     }
   }
